@@ -99,3 +99,10 @@ C:\Users\ttata\Desktop\Programação\Marmoraria-Real\MR\mr\obj\Debug\netcoreapp2
 C:\Users\ttata\Desktop\Programação\Marmoraria-Real\MR\mr\obj\Debug\netcoreapp2.2\LojaVirtual.pdb
 C:\Users\ttata\Desktop\Programação\Marmoraria-Real\MR\mr\obj\Debug\netcoreapp2.2\LojaVirtual.genruntimeconfig.cache
 C:\Users\ttata\Desktop\Programação\Marmoraria-Real\MR\mr\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.CopyComplete
+C:\Users\ttata\Desktop\Programação\Marmoraria-Real\MR\mr\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Home\Login.cshtml.g.cs
+C:\Users\ttata\Desktop\Programação\Marmoraria-Real\MR\mr\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Home\RecuperarSenha.cshtml.g.cs
+C:\Users\ttata\Desktop\Programação\Marmoraria-Real\MR\mr\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Home\CadastrarNovaSenha.cshtml.g.cs
+C:\Users\ttata\Desktop\Programação\Marmoraria-Real\MR\mr\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\_ViewImports.cshtml.g.cs
+C:\Users\ttata\Desktop\Programação\Marmoraria-Real\MR\mr\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\ttata\Desktop\Programação\Marmoraria-Real\MR\mr\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\_ViewStart.cshtml.g.cs
+C:\Users\ttata\Desktop\Programação\Marmoraria-Real\MR\mr\obj\Debug\netcoreapp2.2\Razor\Areas\Colaborador\Views\Home\Painel.cshtml.g.cs

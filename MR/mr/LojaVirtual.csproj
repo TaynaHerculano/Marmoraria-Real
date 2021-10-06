@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>a1db3026-4db6-47f9-9c94-df4317757ab6</UserSecretsId>
   </PropertyGroup>
 
 
@@ -39,6 +40,11 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Mensagem.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Areas\Colaborador\Models\" />
   </ItemGroup>
 
 </Project>
