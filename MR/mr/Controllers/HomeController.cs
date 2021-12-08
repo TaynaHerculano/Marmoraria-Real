@@ -12,19 +12,21 @@ using LojaVirtual.Repositories.Contracts;
 using Microsoft.AspNetCore.Http;
 using LojaVirtual.Libraries.Login;
 using LojaVirtual.Libraries.Filtro;
+using LojaVirtual.Models.ViewModels;
 
 namespace LojaVirtual.Controllers
 {
     public class HomeController : Controller
     {
-        private IClienteRepository _repositoryCliente;
         private INewsletterRepository _repositoryNewsletter;
-        private LoginCliente _loginCliente;
-        public HomeController(IClienteRepository repositoryCliente, INewsletterRepository repositoryNewsletter, LoginCliente loginCliente )
+        private GerenciarEmail _gerenciarEmail;
+        private IProdutoRepository _produtoRepository;
+
+        public HomeController(IProdutoRepository produtoRepository, IClienteRepository repositoryCliente, INewsletterRepository repositoryNewsletter, LoginCliente loginCliente, GerenciarEmail gerenciarEmail)
         {
-            _repositoryCliente = repositoryCliente;
             _repositoryNewsletter = repositoryNewsletter;
-            _loginCliente = loginCliente;
+            _gerenciarEmail = gerenciarEmail;
+            _produtoRepository = produtoRepository;
         }
 
         [HttpGet]
@@ -41,13 +43,17 @@ namespace LojaVirtual.Controllers
                 _repositoryNewsletter.Cadastrar(newsletter);
 
                 TempData["MSG_S"] = "E-mail cadastrado! Agora você vai receber promoções especiais no seu e-mail! Fique atento as novidades!";
-                
+
                 return RedirectToAction(nameof(Index));
             }
             else
             {
                 return View();
             }
+        }
+        public IActionResult Categoria()
+        {
+            return View();
         }
 
         public IActionResult Contato()
@@ -69,7 +75,7 @@ namespace LojaVirtual.Controllers
 
                 if (isValid)
                 {
-                    ContatoEmail.EnviarContatoPorEmail(contato);
+                    _gerenciarEmail.EnviarContatoPorEmail(contato);
 
                     ViewData["MSG_S"] = "Mensagem de contato enviado com sucesso!";
                 }
@@ -98,63 +104,6 @@ namespace LojaVirtual.Controllers
             return View("Contato");
         }
 
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
 
-
-
-        [HttpPost]
-        public IActionResult Login([FromForm] Cliente cliente)
-        {
-           Cliente clienteDB = _repositoryCliente.Login(cliente.Email, cliente.Senha);
-
-            if (clienteDB != null)
-            {
-                _loginCliente.Login(clienteDB);
-
-                return new RedirectResult(Url.Action(nameof(Painel)));
-            }
-            else
-            {
-                ViewData["MSG_E"] = "Usuário não encontrado, verifique o e-mail e senha digitado!";
-                return View();
-            }
-        }
-
-        [HttpGet]
-        [ClienteAutorizacao]
-        public IActionResult Painel()
-        {
-            return new ContentResult() { Content = "Este é o Painel do Cliente" };
-        }
-
-        [HttpGet]
-        public IActionResult CadastroCliente()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult CadastroCliente([FromForm] Cliente cliente)
-        {
-            if (ModelState.IsValid)
-            {
-                _repositoryCliente.Cadastrar(cliente);
-               
-
-                TempData["MSG_S"] = "Cadastro realizado com sucesso!";
-
-                //TODO - Implementar redirecionamentos diferentes (Painel, Carrinho de Compras etc).
-                return RedirectToAction(nameof(CadastroCliente));
-            }
-            return View();
-        }
-
-        public IActionResult CarrinhoCompras()
-        {
-            return View();
-        }
     }
 }

@@ -10,14 +10,14 @@
         <div class="row">
             <aside class="col-md-6">
                 <h4 class="subtitle-doc">
-                    # Outros contatos
-                    <a href="#" data-html="code_desc_simple" class="showcode">[code]</a>
+                    Outros contatos
+                   
                 </h4>
                 <div id="code_desc_simple">
                     <div class="box">
                         <dl>
                             <dt>Devolução/Garantia: </dt>
-                            <dd>devolucao@lojavirtual.com.br</dd>
+                            <dd>devolucao@AMTC.com.br</dd>
                         </dl>
                         <dl>
                             <dt>Televendas: </dt>
@@ -25,7 +25,7 @@
                         </dl>
                         <dl>
                             <dt>SAC:</dt>
-                            <dd>sac@lojavirtual.com.br</dd>
+                            <dd>sac@AMTC.com.br</dd>
                         </dl>
                     </div> <!-- box.// -->
                 </div> <!-- code-wrap.// -->
@@ -33,20 +33,13 @@
             <aside class="col-sm-6">
 
                 <h4 class="subtitle-doc">
-                    # Contato
+                    Área de Contato
                 </h4>
                 <div>
 
                     <article class="card">
                         <div class="card-body p-5">
-                            @if (ViewData["MSG_S"] != null)
-                            {
-                                <p class="alert alert-success">@ViewData["MSG_S"]</p>
-                            }
-                            @if (ViewData["MSG_E"] != null)
-                            {
-                                <p class="alert alert-danger">@Html.Raw(ViewData["MSG_E"])</p>
-                            }
+                            @{ await Html.RenderPartialAsync("~/Views/Shared/_Mensagem.cshtml"); }
 
                             <form role="form" method="post" action="/Home/ContatoAcao">
                                 <div class="form-group">

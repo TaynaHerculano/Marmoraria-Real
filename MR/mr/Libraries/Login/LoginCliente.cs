@@ -1,9 +1,10 @@
-﻿using LojaVirtual.Models;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LojaVirtual.Libraries.Sessao;
+using LojaVirtual.Models;
+using Newtonsoft.Json;
 
 namespace LojaVirtual.Libraries.Login
 {
@@ -30,14 +31,12 @@ namespace LojaVirtual.Libraries.Login
             if (_sessao.Existe(Key))
             {
                 string clienteJSONString = _sessao.Consultar(Key);
-            return JsonConvert.DeserializeObject<Cliente>(clienteJSONString); ;
-
+                return JsonConvert.DeserializeObject<Cliente>(clienteJSONString); ;
             }
             else
             {
                 return null;
             }
-            
         }
 
         public void Logout()
